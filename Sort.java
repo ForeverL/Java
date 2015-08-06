@@ -1,5 +1,11 @@
+package com.java.whut.domain;
+
 public class Sort {
+	/*
+	 * 简单排序:冒泡，选择，插入。
+	*/
 	
+	//O(N^2)最慢
 	public static void BubbleSort(int[] arr){
 		for(int i=0;i<arr.length-1;i++){
 			for(int j=i+1;j<arr.length;j++){
@@ -12,6 +18,7 @@ public class Sort {
 		}
 	}
 	
+	//O(N^2)比冒泡略块。
 	public static void SelectSort(int[] arr){
 		for(int i=0;i<arr.length-1;i++){
 			int minIndex=i;
@@ -25,6 +32,7 @@ public class Sort {
 		}
 	}
 	
+	//O(N^2),比冒泡块一半。
 	public static void InsertSort(int[] arr){
 		for(int i=1;i<arr.length;i++){
 			int temp=arr[i];
@@ -34,6 +42,36 @@ public class Sort {
 				flag--;
 			}
 			arr[flag]=temp;
+		}
+	}
+	
+	//高级排序:希尔排序。基于插入排序，步长为1时等同于插入排序。
+	public static void ShellSort(int[] arr){
+		
+		int len=arr.length;
+		int index,flag,temp;
+		
+		//h为步长，每次while循环后步长递减直至为1.各步长之间应满足互质。
+		int h=1;
+		while(h<len/3)
+			h=3*h+1;
+		while(h>0){
+			for(flag=h;flag<len;flag++){
+				temp=arr[flag];
+				index=flag;
+				//while循环找到标志位arr[flag]的位置index
+				while(index-h>=0&&arr[index-h]>=temp){
+					//如果index减去步长>=0,且步长数组逆序。
+					arr[index]=arr[index-h];
+					index=index-h;
+				}
+				//将arr[flag]插入index处
+				arr[index]=temp;
+			}
+			h=(h-1)/3;
+		}
+		for(int i=0;i<len;i++){
+			System.out.print(arr[i]+" ");
 		}
 	}
 }
