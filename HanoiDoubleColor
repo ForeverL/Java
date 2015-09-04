@@ -1,0 +1,24 @@
+public class HanoiDoubleColor {
+	public static void main(String[] args) {
+		hanoi(4,'A','B','C');
+	}
+
+	private static void hanoi(int n, char a, char b, char c) {
+		if(n==2){
+			move(a,b);
+			move(a,c);
+		}else{
+			hanoi(n-2, a, b, c);
+			move(a,b);
+			hanoi(n-2, c, a, b);
+			move(a, c);
+			hanoi(n-2, b, c, a);
+			
+		}
+		
+	}
+	
+	private static void move(char ch1, char ch2) {
+		System.out.println("Move the top plate from "+ch1+" to "+ch2);
+	}
+}
