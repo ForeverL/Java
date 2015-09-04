@@ -1,0 +1,38 @@
+public class QueenB {
+	private static int[] arr=new int[8];
+	private static int count=1;
+	
+	public static void main(String[] args) {
+		getResult(0);
+	}
+	
+	private static void getResult(int x) {
+		int[] temp=arr;
+		for(int j=0;j<8;j++){
+			arr[x]=j;
+			
+			if(check(j, x)){
+				if(x==7){
+					System.out.println("解法:"+count++);
+					for(int a:arr){
+						System.out.print(a+" ");
+					}
+					System.out.println();
+				}else
+					getResult(x+1);
+					
+			}
+			else{
+				continue;
+			}
+		}
+	}
+	
+	private static boolean check(int y, int x) {
+		for(int i=0;i<x;i++){
+			if(Math.abs(i-x)==Math.abs(arr[i]-y)||arr[i]==y)
+				return false;
+		}
+		return true;
+	}
+}
