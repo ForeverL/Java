@@ -74,4 +74,30 @@ public class Sort {
 			System.out.print(arr[i]+" ");
 		}
 	}
+	
+	public static void FastSort(int[] arr,int left,int right){
+		int flag;
+		if(left<right){
+			flag=Parttion(arr,left,right);
+			FastSort(arr, left, flag-1);
+			FastSort(arr, flag+1, right);
+		}
+		
+	}
+
+	private static int Parttion(int[] arr, int left, int right) {
+		while(left<right){
+			int flag=arr[left];
+			while(left<right){
+				while(left<right&&arr[right]>=flag)
+					right--;
+				arr[left]=arr[right];
+				while(left<right&&arr[left]<=flag)
+					left++;
+				arr[right]=arr[left];
+			}
+			arr[left]=flag;
+		}
+		return left;
+	}
 }
