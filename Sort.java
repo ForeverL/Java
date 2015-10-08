@@ -75,6 +75,8 @@ public class Sort {
 		}
 	}
 	
+	
+	//快速排序
 	public static void FastSort(int[] arr,int left,int right){
 		int flag;
 		if(left<right){
