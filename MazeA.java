@@ -4,6 +4,9 @@
  *按照 下,左,上,右 的顺序来搜索路径.
  * 
 */
+
+//Test Git Commit
+
 public class Maze {
 	private static int[][] maze={ {1, 1, 1, 1, 1, 1, 1, 1},
 						   		  {1, 3, 1, 1, 0, 1, 0, 1},
