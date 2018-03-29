@@ -32,6 +32,7 @@ public class Cell {
 								  {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 								};
 	
+
 	public static int getState(int x,int y){
 		int count=0;
 		int state=-1;
