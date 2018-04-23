@@ -20,7 +20,6 @@ public class QueenB {
 					System.out.println();
 				}else
 					getResult(x+1);
-					
 			}
 			else{
 				continue;
