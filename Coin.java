@@ -1,7 +1,8 @@
 public class Coin {
 	private static int[] coin={2,2,2,2,2,2,2,2,2,2};
 	private static int index=-1;
-	
+
+
 	public static void main(String[] args) {
 		int len=coin.length;
 		check(coin,0,len-1);
